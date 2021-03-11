@@ -1,9 +1,9 @@
 <template>
     <div>
        <TitlePage titleText="Eshop"/>
-        <div class="post__grid" v-for="post in postArray" :key="post.id">
+        <div class="post__grid" v-for="product in productsArray" :key="product.id">
             <div class="post__item">
-                <p> {{ post.title }}</p>
+                <p> {{ product.title }}</p>
             </div>
         </div>
     </div>
@@ -11,33 +11,25 @@
 
 <script>
     import TitlePage from "../components/ui/TitlePage";
+    import Products from "../apollo/queries/products.gql";
     export default {
         components: {
             TitlePage
         },
         data: function() {
             return {
-                postArray:[]
+                productsArray:[]
             }
         },
-        beforeCreated() {
-            console.log("before created")
-        },
-        created() {
-            console.log("created");
-            fetch('https://jsonplaceholder.typicode.com/posts')
-            .then(response => response.json())
-            .then(data =>{
-                this.postArray = data;
-            });
-        },
-        mounted() {
-            console.log("mounted");
-        },
-        destroyed() {
-            console.log('destroyed');
+        apollo : {
+            productsArray: {
+                query : Products,
+                update(data) {
+                    console.log(data);
+                    return data.data;
+                }
+            }
         }
-
     }
 </script>
 

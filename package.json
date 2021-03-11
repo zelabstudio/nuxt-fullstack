@@ -10,9 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/apollo": "^4.0.1-rc.5",
     "core-js": "^3.6.5",
+    "graphql-tag": "^2.11.0",
     "nuxt": "^2.14.6",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "vue-jwt-decode": "^0.1.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^3.1.0",
