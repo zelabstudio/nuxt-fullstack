@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Eshop</h1>
+       <TitlePage titleText="Eshop"/>
         <div class="post__grid" v-for="post in postArray" :key="post.id">
             <div class="post__item">
                 <p> {{ post.title }}</p>
@@ -10,7 +10,11 @@
 </template>
 
 <script>
+    import TitlePage from "../components/ui/TitlePage";
     export default {
+        components: {
+            TitlePage
+        },
         data: function() {
             return {
                 postArray:[]

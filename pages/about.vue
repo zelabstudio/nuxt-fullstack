@@ -1,15 +1,18 @@
 <template>
     <div>
-        <h1>ABout</h1>
+       <TitlePage titleText="About"/>
     </div>
 </template>
 
 <script>
+import TitlePage from "../components/ui/TitlePage";
     export default {
-        
+        components : {
+            TitlePage
+        }
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="sass" scoped>
 
 </style>
