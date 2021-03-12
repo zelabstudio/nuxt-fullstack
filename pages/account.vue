@@ -40,14 +40,8 @@
         beforeMount() {
             const token =  localStorage.getItem('token');
             if(token) {
-                const jwtDecoded = VueJwtDecode.decode(token); 
-                console.log(jwtDecoded);
-                fetch(`http://localhost:3030/api/v1/user/${jwtDecoded.id}`,{
-                    headers: {
-                        "Authorization":token
-                    }
-                })
-                .then(res=>res.json())
+                const jwtDecoded = this.$decodeJwt(token);
+                this.$getMe(jwtDecoded.id,token)
                 .then(data => {
                     console.log(data);
                     this.isLogged = true;

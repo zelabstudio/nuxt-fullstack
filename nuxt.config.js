@@ -18,6 +18,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    "~/plugins/api.plugins.js",
+    "~/plugins/jwt.plugins.js"
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -33,7 +35,6 @@ export default {
   modules: [
     "@nuxtjs/apollo"
   ],
-
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
   },
@@ -43,5 +44,8 @@ export default {
         httpEndpoint:"http://localhost:3030/graphql"
       }
     }
+  },
+  env: {
+    API_URL: process.env.API_URL
   }
 }

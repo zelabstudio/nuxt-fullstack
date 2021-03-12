@@ -47,17 +47,7 @@
                     email:this.email,
                     password: this.password
                 }
-                const url = "http://localhost:3030/api/v1/login"
-                fetch(url,
-                    {
-                        method: "POST",
-                        headers: {
-                            "Content-type":"Application/json"
-                        },
-                        body: JSON.stringify(body)
-                    }
-                )
-                .then(res => res.json())
+                this.$login(body)
                 .then((data) => {
                     console.log(data);
                     if(!data.auth) {
