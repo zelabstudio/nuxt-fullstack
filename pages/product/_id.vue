@@ -30,6 +30,9 @@
                 update(data) {
                     console.log(data);
                     return data.product;
+                },
+                error() {
+                    return this.$root.error({'statusCode':500, message: "id not found"})
                 }
             }
         }

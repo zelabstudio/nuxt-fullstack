@@ -11,9 +11,9 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    "@/assets/css/style.css"
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -35,8 +35,16 @@ export default {
   modules: [
     "@nuxtjs/apollo"
   ],
+  serverMiddleware:['~/api/send-email.js'],
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    extend(config) {
+      config.node = {
+        fs:'empty',
+        net:'empty',
+      }
+    }
   },
   apollo: {
     clientConfigs: {

@@ -27,6 +27,11 @@
                         Login
                     </NuxtLink>
                 </li>
+                <li class="nav__item">
+                    <NuxtLink to="/login" class="nav__link">
+                        Contact
+                    </NuxtLink>
+                </li>
             </ul>
         </nav> 
     </header>
