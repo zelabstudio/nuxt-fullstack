@@ -33,7 +33,8 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    "@nuxtjs/apollo"
+    "@nuxtjs/apollo",
+    "@nuxt/http"
   ],
   serverMiddleware:['~/api/send-email.js'],
 
@@ -54,6 +55,7 @@ export default {
     }
   },
   env: {
-    API_URL: process.env.API_URL
+    API_URL: process.env.API_URL,
+    API_SENDGRID: process.env.SENDGRID,
   }
 }

@@ -31,13 +31,15 @@
                 user:{}
             }
         },
+        middleware:"auth",
         methods: {
             logout: function() {
                 localStorage.removeItem('token');
+                this.$store.commit('loggedOut');
                 this.isLogged=false;
             }
         },
-        beforeMount() {
+        fetch() {
             const token =  localStorage.getItem('token');
             if(token) {
                 const jwtDecoded = this.$decodeJwt(token);
